@@ -1,0 +1,12 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: hossamghanem/skaffold-spring-boot-example
+      jib: {}   # if you have docker file in your application remove jib plugin if you don't have docker file search for jib
+  local: {}
+
+deploy:
+  kubectl:
+    manifests:
+      - k8s-*    # means run files started with k8s- ex: k8s-deployment.yml
